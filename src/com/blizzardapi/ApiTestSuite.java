@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Created by Cris on 19/04/2015.
+ * This class contains all the test cases we have created for this demo
  */
 public class ApiTestSuite {
 
@@ -56,6 +57,7 @@ public class ApiTestSuite {
         return ValidateApiCalltoExpectedResult("17036");
     }
 
+    //Test case 12 we start with item id 17039 and iterate by 3's checking each returned item.
     public static boolean TestCase12() {
         int itemid = 17039;
         for (int i=1; i<4;i++){
@@ -65,8 +67,9 @@ public class ApiTestSuite {
         return true;
     }
 
+    // Test case 13 we create an int array of all the api id's we have created expected results for and use it to generate a random number
+    // excluding 17036 which we know to be incorrect
     public static boolean TestCase13() {
-        // We create an int array of all the api id's we have created expected results for and use it to generate a random number
         int n [] = {17039,17042,17045,18803,18809,76749,76750,76751,76752,76753,76753,77030};
         Random random = new Random();
         if (ValidateApiCalltoExpectedResult(Integer.toString(n[random.nextInt(n.length)]))==false) return false;
